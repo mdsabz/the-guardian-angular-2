@@ -1,7 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-
-import { LatestComponent } from './../pages/latest.component';
-import { YesterdayComponent } from './../pages/yesterday.component';
+import { LatestComponent, YesterdayComponent } from './../pages/index';
 
 const appRoutes: Routes = [
     {

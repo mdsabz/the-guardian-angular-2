@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
+import { DataService } from './../data/data.service';
 
 @Component({
     moduleId: __filename,
@@ -6,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'latest.component.html'
 })
 export class LatestComponent implements OnInit {
-    constructor() { }
+    latestArticles: Promise<any[]>;
 
-    ngOnInit() {}
+    constructor(private _dataService: DataService) { }
+
+    ngOnInit() { this.getLatest(); }
+
+    getLatest() {
+        this._dataService.getLatest()
+            .then((response) => {
+                console.log(response);
+            });
+    }
 }
