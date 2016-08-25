@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 
 import { DataService } from './../data/data.service';
+
+import { HeadlineComponent } from './../article/headline.component';
 
 @Component({
     moduleId: __filename,
     selector: 'latest-news',
-    templateUrl: 'latest.component.html'
+    templateUrl: 'latest.component.html',
+    directives: [HeadlineComponent]
 })
 export class LatestComponent implements OnInit {
-    latestArticles: Promise<any[]>;
+    latestArticles: any[];
 
     constructor(private _dataService: DataService) { }
 
@@ -17,8 +19,8 @@ export class LatestComponent implements OnInit {
 
     getLatest() {
         this._dataService.getLatest()
-            .then((response) => {
-                console.log(response);
+            .then((articles: any[]) => {
+                this.latestArticles = articles;
             });
     }
 }
