@@ -1,4 +1,5 @@
 <div class="page-content">
-    <div *ngIf="_sharedService.isLoading" class="mdl-progress mdl-progress--full-with mdl-js-progress mdl-progress__indeterminate"></div>
+    <!--<div *ngIf="_sharedService.isLoading" class="mdl-progress mdl-progress--full-with mdl-js-progress mdl-progress__indeterminate"></div>-->
+    <div [hidden]="!_sharedService.isLoading" class="mdl-progress mdl-progress--full-with mdl-js-progress mdl-progress__indeterminate"></div>
     <router-outlet></router-outlet>
 </div>

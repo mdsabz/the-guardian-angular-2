@@ -16,7 +16,17 @@ export class DataService {
 
     getLatest() {
         this._sharedService.isLoading = true;
-        return this._http.get(baseUrl + '/search?page-size=200&show-fields=standfirst,thumbnail,trailText&' + apiKey)
+        return this._http.get(baseUrl + '/search?page-size=20&show-fields=standfirst,thumbnail,trailText&' + apiKey)
+            .map((response: Response) => {
+                this._sharedService.isLoading = false;
+                return response.json().response.results
+            })
+            .toPromise();
+    }
+
+    getPolitics() {
+        this._sharedService.isLoading = true;
+        return this._http.get(baseUrl + '/search?section=politics&page-size=20&show-fields=standfirst,thumbnail,trailText&' + apiKey)
             .map((response: Response) => {
                 this._sharedService.isLoading = false;
                 return response.json().response.results
