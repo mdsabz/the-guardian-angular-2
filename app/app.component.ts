@@ -5,6 +5,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { MDL } from './material-design-lite-upgrade-element';
 
 import { DataService } from './data/data.service';
+import { SharedService } from './shared/shared.service';
 
 import { HeaderComponent, DrawerComponent, ContentComponent } from './shell/index';
 
@@ -13,6 +14,6 @@ import { HeaderComponent, DrawerComponent, ContentComponent } from './shell/inde
     selector: 'guardian-app',
     templateUrl: 'app.component.html',
     directives: [MDL, HeaderComponent, DrawerComponent, ContentComponent],
-    providers: [HTTP_PROVIDERS, DataService]
+    providers: [HTTP_PROVIDERS, DataService, SharedService]
 })
 export class AppComponent { }
