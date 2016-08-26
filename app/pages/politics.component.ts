@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from './../data/data.service'
 
-import { HeadlineComponent } from './../article/headline.component';
+import { HeadlineComponent } from './../headline/headline.component';
 
 @Component({
     moduleId: __filename,

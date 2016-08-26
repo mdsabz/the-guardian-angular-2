@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LatestComponent, PoliticsComponent } from './../pages/index';
+import { LatestComponent, PoliticsComponent, ArticleComponent } from './../pages/index';
 
 const appRoutes: Routes = [
     {
@@ -14,6 +14,10 @@ const appRoutes: Routes = [
     {
         path: 'politics',
         component: PoliticsComponent
+    },
+    {
+        path: 'article/:id',
+        component: ArticleComponent
     }
 ];
 

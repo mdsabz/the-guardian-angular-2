@@ -19,7 +19,7 @@ export class DataService {
         return this._http.get(baseUrl + '/search?page-size=20&show-fields=standfirst,thumbnail,trailText&' + apiKey)
             .map((response: Response) => {
                 this._sharedService.isLoading = false;
-                return response.json().response.results
+                return response.json().response.results;
             })
             .toPromise();
     }
@@ -29,14 +29,19 @@ export class DataService {
         return this._http.get(baseUrl + '/search?section=politics&page-size=20&show-fields=standfirst,thumbnail,trailText&' + apiKey)
             .map((response: Response) => {
                 this._sharedService.isLoading = false;
-                return response.json().response.results
+                return response.json().response.results;
             })
             .toPromise();
     }
 
-    getSingle(url: string) {
-        return this._http.get(url + '?' + apiKey)
-            .map((response: Response) => response.json())
+    getArticle(id: string) {
+        if(!id) return;
+        this._sharedService.isLoading = false;
+        return this._http.get(baseUrl + id + '?' + apiKey)
+            .map((response: Response) => {
+                this._sharedService.isLoading = false;
+                return response.json().response.content;
+            })
             .toPromise();
     }
 }

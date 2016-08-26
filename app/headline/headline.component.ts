@@ -14,11 +14,4 @@ export class HeadlineComponent implements OnInit {
     constructor(private _dataService: DataService) { }
 
     ngOnInit() { }
-
-    getSingleArticle() {
-        this._dataService.getSingle(this.headline.apiUrl)
-            .then(function (response) {
-                console.log(response);
-            });
-    }
 }
